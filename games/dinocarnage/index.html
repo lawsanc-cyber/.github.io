@@ -7,7 +7,28 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #111; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-    canvas { display: block; }
+    canvas { display: block; touch-action: manipulation; }
+    /* ── Mobile touch controls ── */
+    #touch-btns {
+      position: fixed; bottom: 28px; left: 0; right: 0;
+      display: none; justify-content: space-between;
+      padding: 0 18px; pointer-events: none; z-index: 20;
+    }
+    #btn-jump, #btn-dino-fire {
+      width: 84px; height: 84px; border-radius: 50%;
+      background: rgba(0,0,0,0.62); font-weight: bold;
+      font-family: monospace; font-size: 12px; line-height: 1.35;
+      text-align: center; touch-action: none;
+      user-select: none; -webkit-user-select: none; cursor: pointer;
+      pointer-events: auto; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; border: 2px solid;
+    }
+    #btn-jump      { border-color: rgba(80,220,80,0.55);  color: #06D6A0; }
+    #btn-dino-fire { border-color: rgba(255,120,30,0.55); color: #FF8800; }
+    .btn-icon { font-size: 28px; display: block; }
+    @media (hover: none) and (pointer: coarse) {
+      #touch-btns { display: flex; }
+    }
     .home-btn {
       position: fixed;
       top: 12px;
@@ -27,12 +48,45 @@
 <body>
 <a href="../../index.html" class="home-btn">⚡ ZapZone</a>
 <canvas id="game"></canvas>
+
+<!-- Mobile jump + fire buttons -->
+<div id="touch-btns">
+  <button id="btn-jump"><span class="btn-icon">▲</span>JUMP</button>
+  <button id="btn-dino-fire"><span class="btn-icon">🔥</span>FIRE</button>
+</div>
+
 <script>
 const canvas = document.getElementById('game');
 const ctx    = canvas.getContext('2d');
 const W = 640, H = 400;
 canvas.width  = W;
 canvas.height = H;
+
+// ── Mobile: scale canvas to fit viewport ─────
+(function () {
+  function fitCanvas() {
+    const s = Math.min(window.innerWidth / W, window.innerHeight / H);
+    canvas.style.width  = Math.floor(W * s) + 'px';
+    canvas.style.height = Math.floor(H * s) + 'px';
+  }
+  window.addEventListener('resize', fitCanvas);
+  fitCanvas();
+
+  function bindBtn(id, code) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const on  = e => { e.preventDefault(); keys[code] = true;  };
+    const off = e => { e.preventDefault(); keys[code] = false; };
+    el.addEventListener('touchstart',  on,  { passive: false });
+    el.addEventListener('touchend',    off, { passive: false });
+    el.addEventListener('touchcancel', off, { passive: false });
+    el.addEventListener('mousedown',  () => keys[code] = true);
+    el.addEventListener('mouseup',    () => keys[code] = false);
+    el.addEventListener('mouseleave', () => keys[code] = false);
+  }
+  bindBtn('btn-jump',      'Space'); // Space = jump
+  bindBtn('btn-dino-fire', 'KeyZ'); // Z = fire
+})();
 
 const GROUND_Y = 328;   // y of ground surface
 const GRAVITY  = 0.60;

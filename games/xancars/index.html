@@ -13,7 +13,36 @@
       align-items: center;
       min-height: 100vh;
     }
-    canvas { display: block; }
+    canvas { display: block; touch-action: manipulation; }
+    /* ── Mobile touch controls ── */
+    #dpad {
+      position: fixed; bottom: 28px; left: 14px;
+      display: none; flex-direction: column; align-items: center; gap: 5px;
+      z-index: 20;
+    }
+    .dpad-row { display: flex; gap: 5px; align-items: center; }
+    .dpad-gap { width: 54px; height: 54px; }
+    #dpad button {
+      width: 54px; height: 54px;
+      background: rgba(0,0,0,0.62); color: #FFD60A;
+      border: 2px solid rgba(255,214,10,0.48); border-radius: 12px;
+      font-size: 20px; touch-action: none;
+      user-select: none; -webkit-user-select: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #btn-fire {
+      position: fixed; bottom: 42px; right: 14px;
+      width: 74px; height: 74px; border-radius: 50%;
+      background: rgba(0,0,0,0.62); color: #FF6B6B;
+      border: 2px solid rgba(255,80,80,0.52); font-size: 28px;
+      touch-action: none; user-select: none; -webkit-user-select: none;
+      cursor: pointer; display: none; align-items: center; justify-content: center;
+      z-index: 20;
+    }
+    @media (hover: none) and (pointer: coarse) {
+      #dpad    { display: flex; }
+      #btn-fire { display: flex; }
+    }
     .home-btn {
       position: fixed;
       top: 12px;
@@ -33,6 +62,19 @@
 <body>
 <a href="../../index.html" class="home-btn">⚡ ZapZone</a>
 <canvas id="game"></canvas>
+
+<!-- Mobile D-pad + fire button -->
+<div id="dpad">
+  <button id="btn-u">▲</button>
+  <div class="dpad-row">
+    <button id="btn-l">◀</button>
+    <div class="dpad-gap"></div>
+    <button id="btn-r">▶</button>
+  </div>
+  <button id="btn-d">▼</button>
+</div>
+<button id="btn-fire">🔥</button>
+
 <script>
 const canvas = document.getElementById('game');
 const ctx    = canvas.getContext('2d');
@@ -40,6 +82,35 @@ const ctx    = canvas.getContext('2d');
 const W = 480, H = 640;
 canvas.width  = W;
 canvas.height = H;
+
+// ── Mobile: scale canvas to fit viewport ─────
+(function () {
+  function fitCanvas() {
+    const s = Math.min(window.innerWidth / W, window.innerHeight / H);
+    canvas.style.width  = Math.floor(W * s) + 'px';
+    canvas.style.height = Math.floor(H * s) + 'px';
+  }
+  window.addEventListener('resize', fitCanvas);
+  fitCanvas();
+
+  function bindBtn(id, code) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const on  = e => { e.preventDefault(); keys[code] = true;  };
+    const off = e => { e.preventDefault(); keys[code] = false; };
+    el.addEventListener('touchstart',  on,  { passive: false });
+    el.addEventListener('touchend',    off, { passive: false });
+    el.addEventListener('touchcancel', off, { passive: false });
+    el.addEventListener('mousedown',  () => keys[code] = true);
+    el.addEventListener('mouseup',    () => keys[code] = false);
+    el.addEventListener('mouseleave', () => keys[code] = false);
+  }
+  bindBtn('btn-u',    'ArrowUp');
+  bindBtn('btn-l',    'ArrowLeft');
+  bindBtn('btn-r',    'ArrowRight');
+  bindBtn('btn-d',    'ArrowDown');
+  bindBtn('btn-fire', 'Space');
+})();
 
 // ── Road layout ──────────────────────────────
 const ROAD_L = 70;
