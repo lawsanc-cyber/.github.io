@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚡ ZapZone – Kids Arcade!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">⚡ ZapZone</a>
+    <div class="nav-links" id="navLinks">
+      <a href="games/xancars/" class="nav-link cars-link">🚗 XanCars</a>
+      <a href="games/xancraft/" class="nav-link craft-link">⛏️ XanCraft</a>
+      <a href="games/kaisurfing/" class="nav-link surf-link">🏄 KaiSurfing</a>
+      <a href="games/dinocarnage/" class="nav-link dino-link">🦖 DinoCarnage</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="floating-emoji" aria-hidden="true">
+      <span style="--x:8%;  --delay:0.0s; --dur:3.2s;">⭐</span>
+      <span style="--x:18%; --delay:0.6s; --dur:4.0s;">🎮</span>
+      <span style="--x:32%; --delay:1.3s; --dur:3.6s;">⚡</span>
+      <span style="--x:55%; --delay:0.3s; --dur:4.5s;">🌈</span>
+      <span style="--x:70%; --delay:1.0s; --dur:3.0s;">🚀</span>
+      <span style="--x:82%; --delay:1.8s; --dur:4.2s;">🎉</span>
+      <span style="--x:93%; --delay:0.5s; --dur:3.8s;">🏆</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">🎮 FREE TO PLAY &nbsp;·&nbsp; SAFE FOR KIDS</div>
+      <h1 class="hero-title">
+        <span class="title-sub">Welcome to</span>
+        <span class="title-main">⚡ ZapZone ⚡</span>
+      </h1>
+      <p class="hero-desc">The most electrifying arcade for kids!<br/>Pick a game and let's blast off! 🚀</p>
+      <a href="#games" class="hero-btn">Play Games Now! 🎮</a>
+    </div>
+
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,50 C360,100 720,0 1080,50 C1260,75 1380,40 1440,50 L1440,100 L0,100 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── GAMES ── -->
+  <section class="games-section" id="games">
+    <div class="section-head">
+      <h2 class="section-title">🕹️ Choose Your Game!</h2>
+      <p class="section-sub">Four epic adventures — more coming soon!</p>
+    </div>
+
+    <div class="games-grid">
+
+      <!-- XANCARS -->
+      <div class="game-card cars-card" data-href="games/xancars/">
+        <div class="card-glow"></div>
+        <span class="card-badge">🏁 Racing</span>
+        <div class="card-icon">🚗</div>
+        <h3 class="card-title">XanCars</h3>
+        <p class="card-desc">Buckle up for the fastest kart racing adventure ever! Zoom through epic tracks, dodge wild obstacles, and race to become the ultimate road champion! 🏆</p>
+        <div class="card-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+        <a href="games/xancars/" class="play-btn cars-btn">🚗 Play Now!</a>
+      </div>
+
+      <!-- XANCRAFT -->
+      <div class="game-card craft-card" data-href="games/xancraft/">
+        <div class="card-glow"></div>
+        <span class="card-badge">🏗️ Building</span>
+        <div class="card-icon">⛏️</div>
+        <h3 class="card-title">XanCraft</h3>
+        <p class="card-desc">Build, dig, and create in a wild block world! Mine for diamonds, craft amazing structures, and explore mysterious underground caves! 💎</p>
+        <div class="card-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+        <a href="games/xancraft/" class="play-btn craft-btn">⛏️ Play Now!</a>
+      </div>
+
+      <!-- KAISURFING -->
+      <div class="game-card surf-card" data-href="games/kaisurfing/">
+        <div class="card-glow"></div>
+        <span class="card-badge">🌊 Adventure</span>
+        <div class="card-icon">🏄</div>
+        <h3 class="card-title">KaiSurfing</h3>
+        <p class="card-desc">Ride the gnarliest waves with Kai! Pull off radical tricks, catch massive swells, and surf your way to glory on the world's wildest ocean! 🌊</p>
+        <div class="card-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+        <a href="games/kaisurfing/" class="play-btn surf-btn">🏄 Play Now!</a>
+      </div>
+
+      <!-- DINOCARNAGE -->
+      <div class="game-card dino-card" data-href="games/dinocarnage/">
+        <div class="card-glow"></div>
+        <span class="card-badge">🔥 Action</span>
+        <div class="card-icon">🦖</div>
+        <h3 class="card-title">DinoCarnage</h3>
+        <p class="card-desc">Unleash prehistoric fury! Jump over raptors, blast pterodactyls, and take down armored triceratops with your dino's fire breath! 🌋</p>
+        <div class="card-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+        <a href="games/dinocarnage/" class="play-btn dino-btn">🦖 Play Now!</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── MARQUEE BANNER ── -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>🎮 Free to Play</span><span>⚡ New Games Coming Soon</span>
+      <span>🌟 Safe for Kids</span><span>🏆 Collect Trophies</span>
+      <span>🚗 XanCars</span><span>⛏️ XanCraft</span><span>🏄 KaiSurfing</span><span>🦖 DinoCarnage</span>
+      <!-- duplicate for seamless loop -->
+      <span>🎮 Free to Play</span><span>⚡ New Games Coming Soon</span>
+      <span>🌟 Safe for Kids</span><span>🏆 Collect Trophies</span>
+      <span>🚗 XanCars</span><span>⛏️ XanCraft</span><span>🏄 KaiSurfing</span><span>🦖 DinoCarnage</span>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-logo">⚡ ZapZone</div>
+    <p>Made with ❤️ for kids everywhere!</p>
+    <div class="footer-icons">🎮 🚗 ⛏️ 🏄 🦖 ⭐ 🎉 🌈</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

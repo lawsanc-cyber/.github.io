@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⛏️ XanCraft – ZapZone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body class="game-page-body craft-theme">
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="../../index.html" class="nav-logo">⚡ ZapZone</a>
+    <div class="nav-links" id="navLinks">
+      <a href="../../games/xancars/"   class="nav-link cars-link">🚗 XanCars</a>
+      <a href="../../games/xancraft/"  class="nav-link craft-link">⛏️ XanCraft</a>
+      <a href="../../games/kaisurfing/" class="nav-link surf-link">🏄 KaiSurfing</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </nav>
+
+  <!-- GAME HERO -->
+  <div class="game-hero">
+    <span class="game-hero-icon">⛏️</span>
+    <h1 class="game-hero-title">XanCraft</h1>
+    <p class="game-hero-sub">Build, Dig, and Create Your World! 🏗️</p>
+    <div class="game-hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,15 1440,30 L1440,60 L0,60 Z" fill="#F5EFFF"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- GAME MAIN -->
+  <main class="game-main">
+
+    <div class="canvas-wrap">
+      <div class="canvas-label">🎮 Preview Animation – Full Game Coming Soon!</div>
+      <canvas id="gameCanvas" width="800" height="380"></canvas>
+    </div>
+
+    <div class="info-card">
+      <div style="font-size:2.5rem">💎</div>
+      <h2>XanCraft is being built!</h2>
+      <p>Grab your pickaxe! XanCraft is a block-building adventure where you mine resources, craft amazing items, and build the craziest structures your imagination can dream up!</p>
+      <div class="progress-wrap">
+        <span class="progress-label">⛏️ Development Progress</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:48%"></div></div>
+        <span class="progress-label">48% Complete — Digging Fast!</span>
+      </div>
+    </div>
+
+    <a href="../../index.html" class="back-btn">🏠 Back to ZapZone</a>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">⚡ ZapZone</div>
+    <p>Made with ❤️ for kids everywhere!</p>
+  </footer>
+
+  <script>
+    const t = document.getElementById('navToggle');
+    const l = document.getElementById('navLinks');
+    t.addEventListener('click', () => {
+      l.classList.toggle('open');
+      t.textContent = l.classList.contains('open') ? '✕' : '☰';
+    });
+  </script>
+  <script src="game.js"></script>
+</body>
+</html>
