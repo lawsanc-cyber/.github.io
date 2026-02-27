@@ -1703,7 +1703,7 @@ class Game {
     // Lava glow
     for (let i = 0; i < 12; i++) {
       const lx = (i*71 + this.titleAnim*0.6 + 800) % 840 - 20;
-      const lh = 4 + Math.sin(this.titleAnim*0.08 + i*1.3) * 5;
+      const lh = Math.max(1, 4 + Math.sin(this.titleAnim*0.08 + i*1.3) * 5);
       ctx.fillStyle = `rgba(255,${60+i*10},0,0.8)`;
       ctx.beginPath(); ctx.ellipse(lx, 430, 22, lh, 0, 0, Math.PI*2); ctx.fill();
     }
