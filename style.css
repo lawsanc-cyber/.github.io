@@ -23,6 +23,8 @@
   --surf-b: #90E0EF;
   --dino-a: #FF4500;
   --dino-b: #FF8C00;
+  --fighter-a: #5A0080;
+  --fighter-b: #CC0033;
 
   --dark: #0F0E17;
   --white: #ffffff;
@@ -72,7 +74,8 @@ a { text-decoration: none; }
 .cars-link:hover  { background: var(--cars-a);  border-color: var(--cars-b);  transform: translateY(-2px); }
 .craft-link:hover { background: var(--craft-a); border-color: var(--craft-b); transform: translateY(-2px); }
 .surf-link:hover  { background: var(--surf-a);  border-color: var(--surf-b);  transform: translateY(-2px); }
-.dino-link:hover  { background: var(--dino-a);  border-color: var(--dino-b);  transform: translateY(-2px); }
+.dino-link:hover     { background: var(--dino-a);    border-color: var(--dino-b);    transform: translateY(-2px); }
+.fighter-link:hover  { background: var(--fighter-a); border-color: var(--fighter-b); transform: translateY(-2px); }
 
 .nav-toggle {
   display: none; background: none; border: none;
@@ -223,6 +226,7 @@ a { text-decoration: none; }
 .game-card:nth-child(2) { animation-delay: .22s; }
 .game-card:nth-child(3) { animation-delay: .34s; }
 .game-card:nth-child(4) { animation-delay: .46s; }
+.game-card:nth-child(5) { animation-delay: .58s; }
 
 @keyframes cardUp {
   from { opacity: 0; transform: translateY(60px); }
@@ -254,12 +258,14 @@ a { text-decoration: none; }
 .cars-card  { background: linear-gradient(145deg,#FF6B35,#FFD93D); box-shadow: 0 15px 45px rgba(255,107,53,.45); }
 .craft-card { background: linear-gradient(145deg,#43A047,#A8E063); box-shadow: 0 15px 45px rgba(67,160,71,.45); }
 .surf-card  { background: linear-gradient(145deg,#00B4D8,#90E0EF); box-shadow: 0 15px 45px rgba(0,180,216,.45); }
-.dino-card  { background: linear-gradient(145deg,#FF4500,#FF8C00); box-shadow: 0 15px 45px rgba(255,69,0,.45); }
+.dino-card    { background: linear-gradient(145deg,#FF4500,#FF8C00); box-shadow: 0 15px 45px rgba(255,69,0,.45); }
+.fighter-card { background: linear-gradient(145deg,#5A0080,#CC0033); box-shadow: 0 15px 45px rgba(90,0,128,.45); }
 
 .cars-card:hover  { box-shadow: 0 28px 60px rgba(255,107,53,.5); }
 .craft-card:hover { box-shadow: 0 28px 60px rgba(67,160,71,.5); }
 .surf-card:hover  { box-shadow: 0 28px 60px rgba(0,180,216,.5); }
-.dino-card:hover  { box-shadow: 0 28px 60px rgba(255,69,0,.5); }
+.dino-card:hover    { box-shadow: 0 28px 60px rgba(255,69,0,.5); }
+.fighter-card:hover { box-shadow: 0 28px 60px rgba(90,0,128,.5); }
 
 .card-badge {
   display: inline-block;
@@ -306,7 +312,8 @@ a { text-decoration: none; }
 .cars-btn  { color: #D44000; }
 .craft-btn { color: #2E7D32; }
 .surf-btn  { color: #0077A8; }
-.dino-btn  { color: #992200; }
+.dino-btn    { color: #992200; }
+.fighter-btn { color: #3A0060; }
 
 /* ============================================
    MARQUEE BANNER
